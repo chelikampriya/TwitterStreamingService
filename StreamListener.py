@@ -27,19 +27,10 @@ class StreamListener(tweepy.Stream):
     def on_status(self, status):
         '''overriding this method to call TweetsProcessor methods
             :param status: parsed status from tweet data'''
-        retweet_count = 0
-        try:
-            retweet_count = getattr(status,'retweet_count')
-            print('retweet_count is {}'.format(retweet_count))
-        except:
-            print('no retweet_count')
-        if retweet_count == 0:
-            text = getattr(status,'text')
-            tweet = {"id_str": getattr(status,'id_str'), "text": text, "created_at": getattr(status,'created_at')}
-            print(tweet)
-            StreamListener.tweets_processor.filter_tweets(tweet)
-        else:
-            print('Its a retweet event')
+        text = getattr(status,'text')
+        tweet = {"id_str": getattr(status,'id_str'), "text": text, "created_at": getattr(status,'created_at')}
+        print(tweet)
+        StreamListener.tweets_processor.filter_tweets(tweet)
 
     def on_error(self, status_code):
         '''Overriding this method for custom error handling.
