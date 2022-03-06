@@ -4,6 +4,8 @@ from tweets_processor import *
 class TestTweetsProcessor(unittest.TestCase):
 
     def test_redshift_connection(self):
+        '''Passing a twitter id (id_str) to redshift and querying for text and asserting it with expected text.
+           Main goal is to validate redshift connection here.'''
         tweet_id = '1500325221710299138'
         tweet_text = "\"idc Justin Bieber music is therapeutic\""
         select_command = 'SELECT text FROM "dev"."public"."tweets_music" where id_str = {};'
