@@ -4,7 +4,7 @@ import string
 from tweepy.models import Status
 from textblob import TextBlob
 from nltk.corpus import wordnet
-from TweetsProcessor import *
+from tweets_processor import *
 
 class StreamListener(tweepy.Stream):
 
@@ -15,6 +15,7 @@ class StreamListener(tweepy.Stream):
                 We need to process only when users post tweets
                 :param raw_data: raw_data from twitter event'''
         data = json.loads(raw_data)
+        print(raw_data)
         if "in_reply_to_status_id" in data:
             status = Status.parse(None, data)
             self.on_status(status)

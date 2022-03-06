@@ -5,7 +5,7 @@ from tweepy.models import Status
 from textblob import TextBlob
 from nltk.corpus import wordnet
 import redshift_connector
-from Config import *
+from config import *
 
 class TweetsProcessor():
     '''Opening Redshift Connection'''

@@ -1,6 +1,6 @@
 import tweepy
-from StreamListener import *
-from Config import *
+from stream_listener import *
+from config import *
 
 # Twitter authorization tokens
 api_key = Config.twitter_api_key
